@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Purpose</h1>
+    <p>This is a simple app for training as I'm wanting to become good At Vue.js</p>
+    <p>Also I tried to use TypeScript this time, since it will soon be almost mandatory</p>
   </div>
 </template>
 
