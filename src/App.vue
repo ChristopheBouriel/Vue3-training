@@ -1,15 +1,3 @@
-<script lang="ts">
-  import { RouterLink, RouterView } from "vue-router";
-  export default {
-    name: "App",
-
-    data() {
-      return {
-
-      }
-    }
-  }
-</script>
 
 <template>
   <header>
@@ -22,16 +10,45 @@
     />
 
     <div class="wrapper">
-
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <!--<RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>-->
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  <section>
+    <Home>
+      <template v-slot:welcome>
+        <p>Bienvenue !</p>
+      </template>
+      <p>Promotion sur la Quatre Fromages</p>
+      <p>Nouveauté - Pizza Royale</p>
+      <p>Jeu concours</p>
+    </Home>
+    
+  </section>
+  <!--<RouterView />-->
 </template>
+
+<script lang="ts">
+  //import { RouterLink, RouterView } from "vue-router";
+  import Home from "./components/Home.vue"; /** Si le composant est enregistré localement, il n'est 
+                                              * disponible que pour une utilisation dans le composant
+                                              * dans lequel il a été importé
+                                              * Pour pouvoir l'utiliser n'importe où, il faut l'enregistrer
+                                              * autrement : voir fichier main.js*/
+  export default {
+    name: "App",
+    components: {
+      Home
+    },
+    data() {
+      return {
+
+      }
+    }
+  }
+</script>
 
 <style>
 @import "@/assets/base.css";
@@ -40,8 +57,9 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
+  text-align: center;
   font-weight: normal;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 header {
