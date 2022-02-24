@@ -1,7 +1,11 @@
 <template>
   <div id="intro">
-      <slot name="welcome"></slot>
-      <slot></slot>
+      <!-- <slot name="welcome"></slot>
+      <slot></slot> -->
+      <p>Promotion sur la Quatre Fromages</p>
+      <p>Nouveauté - Pizza Royale</p>
+      <p>Jeu concours</p>
+      <Likes />
   </div>
   <div id="product-menu">
       <Products />
@@ -9,8 +13,12 @@
 </template>
 
 <script>
+import Likes from "../components/Likes.vue"
 export default {
   name: "Home",
+  components: {
+    Likes
+  },
   data() {
     return {};
   },

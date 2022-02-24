@@ -46,7 +46,8 @@
       <!-- Description du produit -->
       <div class="product-description">
         <h1>
-          {{ $route.params.name }}
+          <!-- {{ $route.params.name }} Remplacé par le computed -->
+          {{ title }}
           <img class="img-best-seller" src="../assets/images/best-seller.png" />
         </h1>
         <p v-show="notAvailable">Momentanément indisponible</p>
@@ -104,7 +105,8 @@
 </template>
 
 <script>
-import photo from "../assets/images/pizza1-tomate.jpg";
+import phototom from "../assets/images/pizza1-tomate.jpg";
+import photocrem from "../assets/images/pizza1-creme.jpg";
 
 export default {
 props: ['name'],
@@ -112,21 +114,21 @@ props: ['name'],
     return {
       product: "Pizza",
       price: 12,
-      img: photo,
-      sale: false,
+      img: phototom,
+      sale: true,
       notAvailable: false,
       sauces: [
         {
           id: 1001,
           type: "Sauce Tomate",
           color: "#db4006",
-          image: photo
+          image: phototom
         },
         {
           id: 1002,
           type: "Crème Fraiche",
           color: "#e9cb8f",
-          image: photo
+          image: photocrem
         }
       ],
       ingredients: [
@@ -290,7 +292,7 @@ table {
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 1px solid rgb(124, 124, 124);
   text-align: right;
   padding-left: 10px;
   padding-right: 10px;
@@ -303,6 +305,15 @@ td {
 }
 td.code-promo {
   padding: 0;
+}
+input {
+    color: white;
+    border: none;
+    background-color: var(--vt-c-black);
+    margin: 0px 10px;
+}
+input::placeholder {
+    color: white
 }
 /* Transition */
 .bounce-enter-active {
