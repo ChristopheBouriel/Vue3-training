@@ -10,13 +10,23 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/about",
+      path: "/about-this-repo",
       name: "about",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
+      alias: "/purpose"
     },
+    {
+      path: "/about",
+      redirect: { name: "about" }
+    },
+    // Cette route doit être en bas de la liste de routage
+    {
+      path: '/:catchAll(.*)',
+      component: () => import("../views/NotFound.vue")
+    }
   ],
 });
 

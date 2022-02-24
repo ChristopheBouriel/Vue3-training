@@ -10,7 +10,7 @@ import router from "./router";
 const app = createApp(App);
 
 //app.use(createPinia());
-//app.use(router);
+app.use(router);
 
 app.component("Products", Products) /** Enregistré de la sorte, le composant est
                                     * utilisable n'importe où dans l'application */

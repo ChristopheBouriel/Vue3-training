@@ -11,28 +11,29 @@
 
     <div class="wrapper">
       <nav>
-        <!--<RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>-->
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink :to="{name: 'about'}">About</RouterLink> <!-- En utilisant les routes nommées -->
       </nav>
     </div>
   </header>
-  <section>
-    <Home>
+  <!--<section>
+    <HomeView>
       <template v-slot:welcome>
         <p>Bienvenue !</p>
       </template>
       <p>Promotion sur la Quatre Fromages</p>
       <p>Nouveauté - Pizza Royale</p>
       <p>Jeu concours</p>
-    </Home>
+    </HomeView>
     
   </section>
-  <!--<RouterView />-->
+  Exemple d'utilisation des slots devenu caduc pour la suite du projet-->
+  <RouterView />
 </template>
 
 <script lang="ts">
   //import { RouterLink, RouterView } from "vue-router";
-  import Home from "./components/Home.vue"; /** Si le composant est enregistré localement, il n'est 
+  import HomeView from "./views/HomeView.vue"; /** Si le composant est enregistré localement, il n'est 
                                               * disponible que pour une utilisation dans le composant
                                               * dans lequel il a été importé
                                               * Pour pouvoir l'utiliser n'importe où, il faut l'enregistrer
@@ -40,7 +41,7 @@
   export default {
     name: "App",
     components: {
-      Home
+      HomeView
     },
     data() {
       return {
