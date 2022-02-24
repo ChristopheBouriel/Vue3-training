@@ -23,11 +23,12 @@ export default {
       const info = computed(() => {
           return nbrLikes.value + " " + message.value;
       })
-      return { nbrLikes, addLikes, info }
+      return { nbrLikes, addLikes, message, info }
   }
 };
 </script>-->
 
+<!-- Avec syntaxe réactive
 <script lang="ts">
 import { reactive, computed, toRefs } from "vue";
 export default {
@@ -50,8 +51,23 @@ export default {
       
       return { ...toRefs(event), addLikes }  // L'emploi de toRefs permet de déstructurer l'objet réactif et de supprimer le event.xxx dans le template
   }
+
+  
+};-->
+
+<script lang="ts">
+import useLikes from "../use/use.likes.vue";
+export default {
+  name: "Likes",
+  
+  setup() {
+      //return useLikes(); La syntaxe ci-dessous permet de savoir précisemment d'où viennent les propriétés lorsqu'on importe plusieurs fonctions de composition
+      const { nbrLikes, addLikes, message, info } = useLikes();
+      return { nbrLikes, addLikes, message, info }
+    }
 };
-</script>-->
+
+</script>
 
 <style scoped>
 .div1 {
