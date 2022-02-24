@@ -6,7 +6,8 @@
   </div>
 </template>
 
-<script>
+<!-- Avec références réactives
+<script lang="ts">
 import { ref, computed } from "vue";
 export default {
   name: "Likes",
@@ -25,7 +26,32 @@ export default {
       return { nbrLikes, addLikes, info }
   }
 };
-</script>
+</script>-->
+
+<script lang="ts">
+import { reactive, computed, toRefs } from "vue";
+export default {
+  name: "Likes",
+  
+  setup() {
+      const event: any = reactive({
+          nbrLikes: 7,
+          message: "aiment cette page",
+          info: computed(() => {
+            return event.nbrLikes + " " + event.message;
+        })
+      })
+
+      function addLikes() {
+          event.nbrLikes++; /** .value parce que c'est une référence réactive, un objet qui
+                              * encapsule mon entier : si j'incrémente l'objet ça ne peut pas
+                              * fonctionner*/
+      }
+      
+      return { ...toRefs(event), addLikes }  // L'emploi de toRefs permet de déstructurer l'objet réactif et de supprimer le event.xxx dans le template
+  }
+};
+</script>-->
 
 <style scoped>
 .div1 {
