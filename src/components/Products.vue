@@ -1,13 +1,13 @@
 <template>
-  <article>
+  <article v-for="(type, index) in types" :key="index">
     <div class="product-img"></div>
     <div class="product-description">
-      <h3>{{ titre }}</h3>
+      <h3>{{ type }}</h3>
       <p>Prix : {{ price }} €</p>
       <p>{{ ingredients }}</p>
-      <a href="">
+      <router-link :to="{ name: 'products-details', params: { name: type}}">
         Commander >>
-      </a>
+      </router-link>
     </div>
   </article>
 </template>
@@ -17,7 +17,7 @@ export default {
   name: "Products",
   data() {
     return {
-      titre: "Pizza Royale",
+      types: ["royale", "orientale", "4 fromages", "barbecue", "vegetarienne"],
       price: 12,
       image: "../assets/images/pizza2.jpg",
       ingredients: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -43,7 +43,8 @@ article {
   justify-content: space-between;
   flex-direction: row;
   width: 40%;
-  border: 1px solid black;
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 4px;
   padding: 10px;
   text-align: center;
   margin-bottom: 30px;

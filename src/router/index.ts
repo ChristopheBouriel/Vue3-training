@@ -22,6 +22,12 @@ const router = createRouter({
       path: "/about",
       redirect: { name: "about" }
     },
+    {
+      path: "/products/:name",
+      name: "products-details",
+      component : () => import("../views/ProductDetailsView.vue"),
+      props: true
+    },
     // Cette route doit être en bas de la liste de routage
     {
       path: '/:catchAll(.*)',
